@@ -146,28 +146,29 @@
 <body>
   <div class="wrapper">
     <div class="title"><span>Register Here</span></div>
-    <form action="#">
+    <form method="POST" action="{% url 'register_page' %}">
+      {% csrf_token %}
       <div class="row">
         <i class="fas fa-user"></i>
-        <input type="text" placeholder="Username" required />
+        <input type="text" name="username" placeholder="Username" required />
       </div>
       <div class="row">
         <i class="fas fa-envelope"></i>
-        <input type="text" placeholder="Email or Phone" required />
+        <input type="email" name="email" placeholder="Email or Phone" required />
       </div>
       <div class="row">
         <i class="fas fa-lock"></i>
-        <input type="password" placeholder="Password" required />
+        <input type="password" name="password" placeholder="Password" required />
       </div>
       <div class="row">
         <i class="fas fa-lock"></i>
-        <input type="password" placeholder="Confirm Password" required />
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required />
       </div>
       <div class="pass"><a href="#">Forgot password?</a></div>
       <div class="row button">
         <input type="submit" value="Sign Up" />
       </div>
-      <div class="signup-link">Already Registered <a href="#">Login Now</a></div>
+      <div class="signup-link">Already Registered <a href="{% url 'login_page' %}">Login Now</a></div>
     </form>
   </div>
 </body>

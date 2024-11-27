@@ -105,77 +105,52 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="blog-post.html">Blog Post</a></li>
-                                            <li><a href="receipe-post.html">Receipe Post</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
-                                            <li><a href="#">Dropdown</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="index.html">Home</a></li>
-                                                    <li><a href="about.html">About Us</a></li>
-                                                    <li><a href="blog-post.html">Blog Post</a></li>
-                                                    <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                    <li><a href="contact.html">Contact</a></li>
-                                                    <li><a href="elements.html">Elements</a></li>
-                                                    <li><a href="#">Dropdown</a>
+                                    <li class="active"><a href="#">Home</a></li>
+                                    <li><a href="{% url 'register_page' %}">Register</a>
+
+                                     <li><a href="{% url 'login_page' %}">Login</a>   <!-- <ul class="dropdown">
+                                            <li><a href="index.html">Home</a></li> -->
+                                            <li><a href="receipe-post.html">Receipies</a></li>
+                                            <li><a href="{% url 'about' %}">About Us</a></li>
+                                            <ul class="dropdown">
+                                                <!-- <li><a href="index.html">Home</a></li> -->
+                                                <!-- <li><a href="about.html">About Us</a></li> -->
+                                                <!-- <li><a href="blog-post.html">Blog Post</a></li> -->
+                                                <!-- <li><a href="receipe-post.html">Receipe Post</a></li> -->
+                                                <!-- <li><a href="contact.html">Contact</a></li> -->
+                                                <!-- <li><a href="elements.html">Elements</a></li> -->
+                                            </ul>
+
+                                            <!-- <li><a href="blog-post.html">Blog Post</a></li> -->
+                                            <!-- <li><a href="receipe-post.html">Receipe Post</a></li> -->
+                                        
+                                            <!-- <li><a href="elements.html">Elements</a></li> -->
+                                            <!-- <li><a href="#">Dropdown</a> -->
+                                                <!-- <li><a href="{% url 'about' %}">About Us</a> -->
+                                                    <!-- <li><a href="index.html">Home</a></li> -->
+                                                    <!-- <li><a href="about.html">About Us</a></li> -->
+                                                    <!-- <li><a href="blog-post.html">Blog Post</a></li> -->
+                                                    <!-- <li><a href="receipe-post.html">Receipe Post</a></li> -->
+                                                    <!-- <li><a href="contact.html">Contact</a></li> -->
+                                                    <!-- <li><a href="elements.html">Elements</a></li> -->
+                                                    <!-- <li><a href="#">Dropdown</a> -->
                                                         <ul class="dropdown">
-                                                            <li><a href="index.html">Home</a></li>
-                                                            <li><a href="about.html">About Us</a></li>
-                                                            <li><a href="blog-post.html">Blog Post</a></li>
-                                                            <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                            <li><a href="contact.html">Contact</a></li>
-                                                            <li><a href="elements.html">Elements</a></li>
+                                                            <!-- <li><a href="index.html">Home</a></li> -->
+                                                            <!-- <li><a href="about.html">About Us</a></li> -->
+                                                            <!-- <li><a href="blog-post.html">Blog Post</a></li> -->
+                                                            <!-- <li><a href="receipe-post.html">Receipe Post</a></li> -->
+                                                            <!-- <li><a href="contact.html">Contact</a></li> -->
+                                                            <!-- <li><a href="elements.html">Elements</a></li> -->
                                                         </ul>
                                                     </li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Mega Menu</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Catagory</li>
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="blog-post.html">Blog Post</a></li>
-                                                <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="elements.html">Elements</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Catagory</li>
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="blog-post.html">Blog Post</a></li>
-                                                <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="elements.html">Elements</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Catagory</li>
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="blog-post.html">Blog Post</a></li>
-                                                <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="elements.html">Elements</a></li>
-                                            </ul>
-                                            <div class="single-mega cn-col-4">
-                                                <div class="receipe-slider owl-carousel">
-                                                    <a href="#"><img src="{% static 'img/bg-img/bg1.jpg' %}" alt=""></a>
-                                                    <a href="#"><img src="{% static 'img/bg-img/bg6.jpg' %}" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="receipe-post.html">Receipies</a></li>
-                                    <li><a href="receipe-post.html">4 Vegans</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    
+                                    <!-- <li><a href="receipe-post.html">Receipies</a></li> -->
+                                    <!-- <li><a href="receipe-post.html">4 Vegans</a></li> -->
+                                    <!-- <li><a href="contact.html">Contact</a></li> -->
                                 </ul>
 
                                 <!-- Newsletter Form -->
@@ -241,8 +216,8 @@
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                             <div class="hero-slides-content" data-animation="fadeIndown" data-delay="100ms">
-                                <h2 data-animation="fadeIndown" data-delay="300ms">The Wonderful World of Cake</h2>
-                                <p data-animation="fadeIndown" data-delay="700ms">Each layer tells a story, each bite a moment of bliss. Whether it's a classic chocolate or a delicate vanilla, cake has a magical way of transforming ordinary days into extraordinary memories.</p>
+                                <h2 data-animation="fadeIndown" data-delay="300ms">The Delightful Universe of Juices</h2>
+                                <p data-animation="fadeIndown" data-delay="700ms">Each sip tells a tale, each drop a burst of vitality. Whether it’s a tangy orange or a refreshing green blend, juice has a remarkable way of turning simple moments into vibrant celebrations.</p>
                                 <a href="#" class="btn delicious-btn" data-animation="fadeIndown" data-delay="1000ms">See Recipe</a>
                             </div>
                         </div>
