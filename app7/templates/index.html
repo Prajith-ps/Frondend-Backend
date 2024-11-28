@@ -110,16 +110,23 @@
 
                                      <li><a href="{% url 'login_page' %}">Login</a>   <!-- <ul class="dropdown">
                                             <li><a href="index.html">Home</a></li> -->
-                                            <li><a href="receipe-post.html">Receipies</a></li>
-                                            <li><a href="{% url 'about' %}">About Us</a></li>
-                                            <ul class="dropdown">
-                                                <!-- <li><a href="index.html">Home</a></li> -->
-                                                <!-- <li><a href="about.html">About Us</a></li> -->
+                                            {% if user.is_authenticated %}
+                                            <li><a href="{% url 'recommend_recipes' %}">Recipes</a></li>
+                                            {% else %}
+                                            <!-- <li><a href="{% url 'login_page' %}">Login to view Recipes</a></li> -->
+                                             {% endif %}
+                                             {% if user.is_authenticated %}
+                                             <li><a href="{% url 'logout_page' %}">Logout</a></li>
+                                         {% endif %}
+                                            <li><a href="{% url 'about' %}">About Us</a>
+                                                <ul class="dropdown">
+                                                <li><a href="{% url 'about' %}">About Team</a>
+                                                <li><a href="{% url 'contact' %}">Contact</a>
                                                 <!-- <li><a href="blog-post.html">Blog Post</a></li> -->
                                                 <!-- <li><a href="receipe-post.html">Receipe Post</a></li> -->
                                                 <!-- <li><a href="contact.html">Contact</a></li> -->
                                                 <!-- <li><a href="elements.html">Elements</a></li> -->
-                                            </ul>
+                                            </ul></li>
 
                                             <!-- <li><a href="blog-post.html">Blog Post</a></li> -->
                                             <!-- <li><a href="receipe-post.html">Receipe Post</a></li> -->
