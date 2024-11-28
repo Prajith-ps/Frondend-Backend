@@ -6,10 +6,9 @@
 # from .forms import LoginFortm, Signupform
 # from .models import UserProfile
 # from django.contrib.auth.models import user
-
+from django.contrib.auth.decorators import login_required
 def home(request):
-    template=loader.get_template('index.html')
-    return HttpResponse(template.render())
+    return render(request,'index.html')
 def about(request):
     template=loader.get_template('about.html')
     return HttpResponse(template.render())
@@ -60,14 +59,70 @@ def login_page(request):
         if user is not None:
             # Log the user in and redirect
             login(request, user)
-            return redirect('index')  # Replace 'home' with your target view name
+            return redirect('home')  # Replace 'home' with your target view name
         else:
             return render(request, 'login.html', {'error': 'Invalid username or password'})
 
     return render(request, 'login.html')
 
 
-def logout_page(request):
+from django.shortcuts import redirect
+from django.contrib.auth import logout
+from django.contrib import messages
+
+def logout_view(request):
+    # Log the user out
     logout(request)
+    
+    # Display a success message
     messages.success(request, "You have successfully logged out.")
-    return redirect('login_page')
+    
+    # Redirect to the login page or home page
+    return redirect('login_page')  # You can change 'login_page' to any other URL name you prefer
+
+
+# recommendations/views.py
+# recommendations/views.py
+from django.shortcuts import render
+from django.http import JsonResponse
+from .utils import load_data, preprocess_data, get_recipe_vectors, calculate_similarity
+import pandas as pd
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Load data and preprocess it
+data = load_data('app7/ml_models/dataset.csv')  # Update path to your dataset
+data = preprocess_data(data)
+cv, vectors = get_recipe_vectors(data)
+similarity = calculate_similarity(vectors)
+
+@login_required 
+def recommend_recipes(request):
+    input_ingredients = request.GET.get('ingredients', '')
+    
+    recommended_recipes = []
+
+    if input_ingredients:
+        # Preprocess the input ingredients
+        input_data = preprocess_data(pd.DataFrame([input_ingredients], columns=["Ingredients"]))
+        input_vector = cv.transform(input_data["Cleaned_Ingredients"]).toarray()
+
+        # Calculate the similarity with the existing recipes
+        input_similarity = cosine_similarity(input_vector, vectors)
+        recommendations = sorted(list(enumerate(input_similarity[0])), reverse=True, key=lambda x: x[1])[1:6]
+
+        # Collect recommended recipes
+        for i in recommendations:
+            recipe = data.iloc[i[0]]
+            recommended_recipes.append({
+                'title': recipe['Title'],
+                'ingredients': recipe['Ingredients'],
+                'instructions': recipe['Instructions'],
+                'image_name': recipe['Image_Name']
+            })
+    
+    return render(request, 'recommend.html', {'recommended_recipes': recommended_recipes})
+from django.shortcuts import render
+
+# def login_redirect(request):
+#     messages.info(request, "You need to log in to view recipes.")
+#     return redirect('login_page')
