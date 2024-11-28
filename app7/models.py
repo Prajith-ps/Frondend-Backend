@@ -14,4 +14,12 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.type}"
+from django.db import models
+class Recipe(models.Model):
+    title = models.CharField(max_length=100)
+    ingredients = models.TextField()
+    instructions = models.TextField()
+    image_name = models.ImageField(upload_to='img/', blank=True, null=True)  # image field
 
+    def __str__(self):
+        return self.title
