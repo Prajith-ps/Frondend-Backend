@@ -21,7 +21,9 @@ Tools & Libraries
     Backend: Django, DRF.
     ML: Scikit-learn (Random Forest), spaCy/NLTK (NLP).
     Frontend: Django templates or React.
-    Database: SQLite/PostgreSQL.![index](https://github.com/user-attachments/assets/c0df6d05-a6a1-4fdf-96f6-c6c753515672)
+    Database: SQLite/PostgreSQL.![index]
+   ![index](https://github.com/user-attachments/assets/8b441ad7-6eb3-4361-956a-259ef3ea66b6)
+
 
 
         
