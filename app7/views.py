@@ -89,8 +89,18 @@ from .utils import load_data, preprocess_data, get_recipe_vectors, calculate_sim
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 
+
+
+
+
+
+
+
+
 # Load data and preprocess it
-data = load_data('app7/ml_models/dataset.csv')  # Update path to your dataset
+data = load_data('app7/ml_models/dataset.zip')
+  # Update path to your dataset
+
 data = preprocess_data(data)
 cv, vectors = get_recipe_vectors(data)
 similarity = calculate_similarity(vectors)
